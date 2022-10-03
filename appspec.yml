@@ -4,6 +4,8 @@ os: linux
 files:
   - source: ./
     destination: /home/ec2-user/
+  - source: ./bin/node-app.service
+    destination: /etc/systemd/system/
 
 permissions:
   - object: /home/ec2-user/
@@ -11,11 +13,11 @@ permissions:
 
 hooks:
   ApplicationStop:
-    - location: /home/ec2-user/bin/stop.sh
+    - location: bin/stop.sh
       timeout: 300
       runas: ec2-user
 
   ApplicationStart:
-    - location: /home/ec2-user/bin/start.sh
+    - location: bin/start.sh
       timeout: 300
       runas: ec2-user
