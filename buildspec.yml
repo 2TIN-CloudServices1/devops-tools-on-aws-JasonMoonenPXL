@@ -3,13 +3,13 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 14
+      nodejs: 16
       
   pre_build:
     commands:
       - echo Install dependencies
       - npm install
-      - npm test
+#      - npm test
 
   build:
     commands:
